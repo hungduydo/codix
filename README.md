@@ -8,3 +8,9 @@ Client: Angular@14 , ngx-bootstrap@9
 ```sh
 sh run.sh
 ```
+
+## Remaind Issues
+- Profile update validate not complete
+- Password/repassword match validate dont work
+- Not yet implement lazyload
+- ...
