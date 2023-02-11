@@ -1,0 +1,53 @@
+<div class="d-flex flex-column h-100">
+  <app-header></app-header>
+  <div class="container my-5 h-100">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nickname">Nickname</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          formControlName="username"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          formControlName="email"
+          [attr.disabled]="true"
+        />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input
+          type="text"
+          class="form-control"
+          id="phone"
+          formControlName="phone"
+        />
+      </div>
+      <div class="form-group">
+        <label for="country">Country</label>
+        <select class="form-control" id="country" formControlName="country">
+          <option>Choose...</option>
+          <option
+            *ngFor="let country of userService.countries"
+            [value]="Object.keys(country)[0]"
+          >
+            {{ Object.values(country)[0] }}
+          </option>
+        </select>
+      </div>
+      <div class="alert alert-danger" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>
